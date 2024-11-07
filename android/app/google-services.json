@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "774660723309",
+    "project_id": "destinaku-a1235",
+    "storage_bucket": "destinaku-a1235.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774660723309:android:932c0cf0af120e4083e564",
+        "android_client_info": {
+          "package_name": "com.example.destinaku"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHpCzrDY0j-h1vwk2fJMCQeHrD7hYYMO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
