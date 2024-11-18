@@ -1,6 +1,5 @@
 import 'package:destinaku/src/core/helper/ui_theme_extention.dart';
 import 'package:destinaku/src/core/styles/app_colors.dart';
-import 'package:destinaku/src/core/styles/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,7 +18,7 @@ class AppTextField extends StatelessWidget {
   final TextCapitalization? textCapitalization;
   final int? minLines;
   final int? maxLines;
-  final bool isNotBorder;
+  // final bool isNotBorder;
   final bool autoFocus;
   final List<TextInputFormatter>? inputFormatters;
   final bool readOnly;
@@ -46,7 +45,7 @@ class AppTextField extends StatelessWidget {
     this.maxLength,
     this.textCapitalization,
     this.maxLines,
-    this.isNotBorder = false,
+    // this.isNotBorder = false,
     this.autoFocus = false,
     this.inputFormatters,
     this.focusNode,
@@ -73,7 +72,6 @@ class AppTextField extends StatelessWidget {
         validator: validator,
         onChanged: onChanged,
         keyboardType: keyboardType,
-        // cursorColor: AppColors.black100,
         onEditingComplete: onEditingComplete,
         onFieldSubmitted: onFieldSubmitted,
         textCapitalization: textCapitalization ?? TextCapitalization.sentences,
@@ -87,44 +85,44 @@ class AppTextField extends StatelessWidget {
           prefixIcon: preffix,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 28,
-            vertical: 20,
+            vertical: 16,
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: isNotBorder ? BorderSide.none : const BorderSide(color: AppColors.borderEnable, width: 1),
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(width: 1),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: isNotBorder ? BorderSide.none : const BorderSide(color: AppColors.borderEnable, width: 1),
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(color: Colors.transparent, width: 1),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: isNotBorder ? BorderSide.none : const BorderSide(color: Color(0xFF53E88B), width: 1),
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Colors.blue.shade700, width: 1),
           ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: AppColors.borderEnable, width: 1),
+            borderSide: BorderSide(color: Colors.blue.shade700, width: 1),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(color: AppColors.danger, width: 1),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: isNotBorder ? BorderSide.none : const BorderSide(color: AppColors.danger, width: 1),
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(color: AppColors.danger, width: 1),
           ),
-          fillColor: Colors.white,
+          fillColor: const Color(0xffF5F9FC),
           filled: true,
           hintText: hintText,
-          hintStyle: context.h1.copyWith(
+          hintStyle: context.regular.copyWith(
             color: AppColors.hintText.withOpacity(.3),
             fontSize: 14,
           ),
-          errorStyle: context.h1.copyWith(
+          errorStyle: context.regular.copyWith(
             color: AppColors.danger,
           ),
         ),
-        style: context.h1.copyWith(fontSize: 16),
+        style: context.regular.copyWith(fontSize: 16),
         controller: controller,
       ),
     );

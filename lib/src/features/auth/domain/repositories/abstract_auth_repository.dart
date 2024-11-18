@@ -1,10 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:destinaku/src/core/network/error/failures.dart';
-import 'package:destinaku/src/features/auth/domain/models/login_params.dart';
-import 'package:destinaku/src/shared/domain/models/user_model.dart';
+
+import '../../../../core/network/error/failures.dart';
+import '../entities/user.dart';
 
 abstract class AbstractAuthRepository {
-  // Gent Ny Times Articles
-  Future<Either<Failure, String>> login(LoginParams params);
-  Future<Either<Failure, UserModel>> register(UserModel params);
+  Future<Either<Failure, User>> login(User params);
+  Future<Either<Failure, User>> register(User params);
 }

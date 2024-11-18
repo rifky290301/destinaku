@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:destinaku/main.dart';
+import 'package:destinaku/src/core/helper/helper.dart';
 import 'package:destinaku/src/core/router/app_routes.dart';
 import 'package:destinaku/src/core/utils/constant/app_constants.dart';
-import 'package:destinaku/src/features/intro/presentation/pages/onboarding_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -18,20 +19,19 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   void initState() {
     super.initState();
-    Timer(
-      const Duration(seconds: 3),
-      () => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (BuildContext context) => const OnboardingPage(),
-        ),
-      ),
-    );
-
-    // Navigator.pushNamedAndRemoveUntil(
-    //   context,
-    //   AppRouteEnum.login.name,
-    //   (route) => false,
-    // );
+    late String route;
+    Timer(const Duration(seconds: 3), () {
+      if (Helper.isHaveSeenOnboarding) {
+        if (FirebaseAuth.instance.currentUser != null) {
+          route = AppRoute.home;
+        } else {
+          route = AppRoute.login;
+        }
+      } else {
+        route = AppRoute.onBoarding;
+      }
+      context.pushReplacement(route);
+    });
   }
 
   @override

@@ -1,4 +1,4 @@
-package com.example.destinaku
+package com.marthabakmanis.destinaku
 
 import io.flutter.embedding.android.FlutterActivity
 

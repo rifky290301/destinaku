@@ -1,73 +1,54 @@
 import 'package:destinaku/src/features/auth/presentation/pages/register_page.dart';
+import 'package:destinaku/src/features/home/presentation/pages/home_page.dart';
+import 'package:destinaku/src/features/intro/presentation/pages/onboarding_page.dart';
+import 'package:destinaku/src/shared/services/auth_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
 import '../../features/auth/presentation/pages/login_page.dart';
+import '../../features/intro/presentation/pages/splash_screen_page.dart';
+import 'app_routes.dart';
 
-class AppRouter {
-  static String currentRoute = "/";
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+final AuthService authService = AuthService();
 
-  static Route<dynamic> generateRoute(RouteSettings settings) {
-    currentRoute = settings.name ?? "/";
-    switch (settings.name) {
-      // Ny Times Articles page
-      case 'login':
-        return CupertinoPageRoute(
-          settings: RouteSettings(name: settings.name),
-          builder: (_) => LoginPage(),
-        );
+final GoRouter router = GoRouter(
+  // refreshListenable: authService, // Refresh saat status login berubah
+  // redirect: (context, state) {
+  //   final isLoggedIn = authService.isLoggedIn;
+  //   final isLoggingIn = state.matchedLocation == AppRoute.login;
 
-      case '/register':
-        return CupertinoPageRoute(
-          settings: RouteSettings(name: settings.name),
-          builder: (_) => const RegisterPage(),
-        );
+  //   // Jika belum login dan bukan di halaman login, arahkan ke /login
+  //   if (!isLoggedIn && !isLoggingIn) return AppRoute.login;
 
-      // // Ny Times Article Details page
-      // case '/article_details_page':
-      //   return CupertinoPageRoute(
-      //     settings: RouteSettings(name: settings.name),
-      //     builder: (_) {
-      //       assert(
-      //           settings.arguments != null, "nyTimesArticleModel is required");
-      //       return ArticleDetailsPage(
-      //         model: settings.arguments as ArticleModel,
-      //       );
-      //     },
-      //   );
+  //   // Jika sudah login dan mencoba ke /login, arahkan ke home
+  //   if (isLoggedIn && isLoggingIn) return AppRoute.home;
 
-      // // Web view page
-      // case '/web_view_page':
-      //   return CupertinoPageRoute(
-      //     settings: RouteSettings(name: settings.name),
-      //     builder: (_) => WebViewPage(
-      //       link: settings.arguments as String,
-      //     ),
-      //   );
-
-      // // Photo view page
-      // case '/photo_view_page':
-      //   return CupertinoPageRoute(
-      //     settings: RouteSettings(name: settings.name),
-      //     builder: (_) {
-      //       Map<String, dynamic>? args =
-      //           settings.arguments as Map<String, dynamic>?;
-      //       assert(args != null, "You should pass 'path' and 'fromNet'");
-      //       return PhotoViewPage(
-      //         path: args!['path'],
-      //         fromNet: args['fromNet'],
-      //       );
-      //     },
-      //   );
-
-      default:
-        return CupertinoPageRoute(
-          settings: RouteSettings(name: settings.name),
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Text('No route defined for ${settings.name}'),
-            ),
-          ),
-        );
-    }
-  }
-}
+  //   return null; // Tidak ada redirect
+  // },
+  navigatorKey: navigatorKey,
+  initialLocation: '/',
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const SplashScreenPage(),
+    ),
+    GoRoute(
+      path: AppRoute.onBoarding,
+      builder: (context, state) => const OnboardingPage(),
+    ),
+    GoRoute(
+      path: AppRoute.login,
+      builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: AppRoute.register,
+      builder: (context, state) => const RegisterPage(),
+    ),
+    GoRoute(
+      path: AppRoute.home,
+      builder: (context, state) => const HomePage(),
+    ),
+  ],
+);

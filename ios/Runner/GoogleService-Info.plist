@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAU4wnQgYCuFxDQJP_CBfsRlHawmUJOZdc</string>
+	<string>AIzaSyBY878bnQPU1AP_yJ5t6ANF-PjyJ196Ha4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>774660723309</string>
+	<string>817449733674</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.destinaku</string>
 	<key>PROJECT_ID</key>
-	<string>destinaku-a1235</string>
+	<string>destinaku</string>
 	<key>STORAGE_BUCKET</key>
-	<string>destinaku-a1235.firebasestorage.app</string>
+	<string>destinaku.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:774660723309:ios:4e811276c26e9cbb83e564</string>
+	<string>1:817449733674:ios:2a5dd3559b8d9513193d53</string>
+	<key>DATABASE_URL</key>
+	<string>https://destinaku-default-rtdb.asia-southeast1.firebasedatabase.app</string>
 </dict>
 </plist>

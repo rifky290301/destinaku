@@ -23,4 +23,5 @@ class AppColors {
   static const danger = Color(0xFFFF4B4B);
   static const hintText = Color(0xFF3B3B3B);
   static const borderEnable = Color(0xFFF4F4F4);
+  static const textSecondary = Color(0xFF7C7C7C);
 }

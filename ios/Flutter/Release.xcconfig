@@ -1,2 +1,8 @@
-#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
-#include "Generated.xcconfig"
+# Include configurations from CocoaPods
+# Pastikan mengganti path sesuai lokasi konfigurasi CocoaPods di proyek Anda.
+# Umumnya berada di:
+# ${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig
+
+# Untuk integrasi CocoaPods
+# Default:
+# "${SRCROOT}/Pods/Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"

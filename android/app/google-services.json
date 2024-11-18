@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "774660723309",
-    "project_id": "destinaku-a1235",
-    "storage_bucket": "destinaku-a1235.firebasestorage.app"
+    "project_number": "817449733674",
+    "project_id": "destinaku",
+    "storage_bucket": "destinaku.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:774660723309:android:932c0cf0af120e4083e564",
+        "mobilesdk_app_id": "1:817449733674:android:ce3006e8fa4a7a29193d53",
         "android_client_info": {
-          "package_name": "com.example.destinaku"
+          "package_name": "com.marthabakmanis.destinaku"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDHpCzrDY0j-h1vwk2fJMCQeHrD7hYYMO0"
+          "current_key": "AIzaSyAP3740izEH_90Yxc4kx9lGpo1NgGw97TI"
         }
       ],
       "services": {

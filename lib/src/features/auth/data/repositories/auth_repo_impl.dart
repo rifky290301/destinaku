@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:destinaku/src/core/network/error/exceptions.dart';
-import 'package:destinaku/src/core/network/error/failures.dart';
-import 'package:destinaku/src/features/auth/data/data_source/remote/auth_impl_api.dart';
-import 'package:destinaku/src/features/auth/domain/models/login_params.dart';
-import 'package:destinaku/src/features/auth/domain/repositories/abstract_auth_repository.dart';
-import 'package:destinaku/src/shared/domain/models/user_model.dart';
+
+import '../../../../core/network/error/failures.dart';
+import '../../domain/entities/user.dart';
+import '../../domain/repositories/abstract_auth_repository.dart';
+import '../datasources/remote/auth_impl_api.dart';
 
 class AuthRepositoryImpl extends AbstractAuthRepository {
   final AuthImplApi authApi;
@@ -12,10 +12,10 @@ class AuthRepositoryImpl extends AbstractAuthRepository {
   AuthRepositoryImpl(this.authApi);
 
   @override
-  Future<Either<Failure, String>> login(LoginParams params) async {
+  Future<Either<Failure, User>> login(User params) async {
     try {
       final result = await authApi.login(params);
-      return Right(result.data ?? '');
+      return Right(result);
     } on ServerException catch (e) {
       return Left(ServerFailure(e.message, e.statusCode));
     } on CancelTokenException catch (e) {
@@ -24,10 +24,10 @@ class AuthRepositoryImpl extends AbstractAuthRepository {
   }
 
   @override
-  Future<Either<Failure, UserModel>> register(UserModel params) async {
+  Future<Either<Failure, User>> register(User params) async {
     try {
       final result = await authApi.register(params);
-      return Right(result.data ?? UserModel());
+      return Right(result);
     } on ServerException catch (e) {
       return Left(ServerFailure(e.message, e.statusCode));
     } on CancelTokenException catch (e) {
